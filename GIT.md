@@ -1,7 +1,5 @@
 # Git Commands Cheat Sheet 📚
 
-A comprehensive guide to Git commands organized by category. Click on any section to expand and see the commands.
-
 ## Table of Contents
 - [Setup & Configuration](#setup--configuration)
 - [Getting & Creating Projects](#getting--creating-projects)
@@ -560,7 +558,3 @@ git reset --hard HEAD
 </details>
 
 ---
-
-**Made with ❤️ for DevOps Engineers**
-
-> Remember: With great Git power comes great responsibility. Always backup important work!
