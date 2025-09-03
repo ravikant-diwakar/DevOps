@@ -5,3 +5,16 @@
 ## Learn Git
 
 - [x] [Git Guide](https://github.com/ravikant-diwakar/DevOps/blob/master/GIT.md)
+
+## Learn Linux & Scripting
+
+> Resources:
+
+- [x] [Operating System - Overview](https://www.tutorialspoint.com/operating_system/os_overview.htm)
+- [x] [Shell Scripting Tutorial](https://www.shellscript.sh/)
+- [x] [Powershell Tutorial for Beginners: Learn Powershell Scripting](https://www.guru99.com/powershell-tutorial.html)
+- [x] [Bash Reference Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html)
+- [x] [Ultimate Guide: Getting Started With Ubuntu](https://itsfoss.com/getting-started-with-ubuntu/)
+- [x] [FreeBSD Handbook](https://docs.freebsd.org/en/books/handbook/)
+- [x] [Linux command handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/)
+- [x] [Linux commands for Cloud and Devops engineers](https://www.youtube.com/watch?v=lCq4mYQL0WY)
