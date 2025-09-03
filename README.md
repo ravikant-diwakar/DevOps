@@ -4,16 +4,9 @@
 
 # Git Commands Cheat Sheet 📚
 
-A comprehensive reference guide for Git version control system commands. Perfect for developers of all levels - from beginners learning the basics to experienced developers looking for quick reference.
+A comprehensive guide to Git commands organized by category. Click on any section to expand and see the commands.
 
-## 🚀 Quick Start
-
-This cheat sheet covers all essential Git commands organized by category. Click on any section below to expand and view the commands.
-
----
-
-## 📋 Table of Contents
-
+## Table of Contents
 - [Setup & Configuration](#setup--configuration)
 - [Getting & Creating Projects](#getting--creating-projects)
 - [Basic Snapshotting](#basic-snapshotting)
@@ -33,24 +26,35 @@ This cheat sheet covers all essential Git commands organized by category. Click 
 <details>
 <summary>Click to expand Setup & Configuration commands</summary>
 
-### Initial Git Configuration
-Configure your Git environment with your identity and preferences.
-
+### Configure Git globally
 ```bash
 # Set username globally for commits
 git config --global user.name "Your Name"
 
-# Set email globally for commits  
+# Set email globally for commits
 git config --global user.email "your@email.com"
 
-# View current configuration settings
+# View current configuration
 git config --global --list
+
+# Set default branch name
+git config --global init.defaultBranch main
+
+# Set default editor
+git config --global core.editor "code --wait"
 ```
 
-### Additional Configuration Tips
-- Use `--global` flag to set configuration for all repositories
-- Omit `--global` to set configuration for current repository only
-- You can also configure default text editor, merge tools, and other preferences
+### Additional Configuration
+```bash
+# Check specific config value
+git config user.name
+
+# Set config for current repository only
+git config user.name "Project Specific Name"
+
+# Remove a config setting
+git config --global --unset user.name
+```
 
 </details>
 
@@ -61,24 +65,38 @@ git config --global --list
 <details>
 <summary>Click to expand Getting & Creating Projects commands</summary>
 
-### Starting with Git
-Initialize new repositories or clone existing ones.
-
+### Initialize and Clone
 ```bash
-# Initialize a local repository in current directory
+# Initialize a local repository
 git init
 
-# Clone a remote repository to your local machine
+# Initialize with specific branch name
+git init -b main
+
+# Clone a remote repository
 git clone <repo_url>
 
-# Add a remote repository (typically named 'origin')
-git remote add origin <url>
+# Clone to a specific directory
+git clone <repo_url> <directory_name>
+
+# Clone only the latest commit (shallow clone)
+git clone --depth 1 <repo_url>
 ```
 
-### Common Use Cases
-- `git init`: Start version control in an existing project
-- `git clone`: Download a project from GitHub, GitLab, etc.
-- `git remote add origin`: Connect your local repo to a remote repository
+### Remote Management
+```bash
+# Add a remote (GitHub, GitLab, etc)
+git remote add origin <url>
+
+# View remote repositories
+git remote -v
+
+# Change remote URL
+git remote set-url origin <new_url>
+
+# Remove a remote
+git remote remove origin
+```
 
 </details>
 
@@ -89,31 +107,41 @@ git remote add origin <url>
 <details>
 <summary>Click to expand Basic Snapshotting commands</summary>
 
-### Working with Files and Commits
-Track changes and create snapshots of your project.
-
+### Checking Status and Staging
 ```bash
-# Check the status of your working directory
+# List files to be committed
 git status
+
+# Short status format
+git status -s
 
 # Stage a specific file for commit
 git add <filename>
 
-# Stage all changes in current directory
+# Stage all files
 git add .
 
-# Commit staged changes with a message
-git commit -m "Your descriptive commit message"
+# Stage all files with specific extension
+git add *.js
 
-# Edit the last commit message
-git commit --amend
+# Interactive staging
+git add -i
 ```
 
-### Best Practices
-- Always check `git status` before committing
-- Write clear, descriptive commit messages
-- Commit frequently with logical chunks of changes
-- Use `git add .` carefully to avoid staging unwanted files
+### Committing Changes
+```bash
+# Commit staged changes
+git commit -m "Your message"
+
+# Commit all changes (skip staging)
+git commit -a -m "Your message"
+
+# Edit last commit message
+git commit --amend
+
+# Commit with multiline message
+git commit -m "Title" -m "Description"
+```
 
 </details>
 
@@ -124,27 +152,35 @@ git commit --amend
 <details>
 <summary>Click to expand Undoing Changes commands</summary>
 
-### Reverting and Resetting
-Fix mistakes and undo unwanted changes.
-
+### File Level Changes
 ```bash
-# Discard changes in a specific file (restore from last commit)
+# Discard changes in a specific file
 git checkout -- <filename>
 
-# Remove a file from repository and working directory
+# Restore file to last committed state
+git restore <filename>
+
+# Remove file from repository
 git rm <filename>
 
-# Reset all changes back to last commit (DANGEROUS!)
-git reset --hard HEAD
-
-# Create a new commit that undoes a previous commit
-git revert <commit_id>
+# Remove file from staging area only
+git rm --cached <filename>
 ```
 
-### ⚠️ Important Notes
-- `git reset --hard HEAD` will permanently delete all uncommitted changes
-- `git revert` is safer than `git reset` for shared repositories
-- Always double-check before running destructive commands
+### Commit Level Changes
+```bash
+# Reset all changes back to last commit
+git reset --hard HEAD
+
+# Reset to specific commit
+git reset --hard <commit_id>
+
+# Soft reset (keep changes in staging)
+git reset --soft HEAD~1
+
+# Make a new commit that undoes a previous one
+git revert <commit_id>
+```
 
 </details>
 
@@ -155,36 +191,56 @@ git revert <commit_id>
 <details>
 <summary>Click to expand Branching & Merging commands</summary>
 
-### Working with Branches
-Create parallel development workflows and merge changes.
-
+### Branch Management
 ```bash
-# List all local branches (* indicates current branch)
+# List all branches
 git branch
+
+# List remote branches
+git branch -r
+
+# List all branches (local and remote)
+git branch -a
 
 # Create a new branch
 git branch <branchname>
 
-# Delete a local branch
+# Delete a branch
 git branch -d <branchname>
 
-# Create and immediately switch to a new branch
+# Force delete a branch
+git branch -D <branchname>
+```
+
+### Switching Branches
+```bash
+# Create and switch to a new branch
 git checkout -b <branchname>
 
-# Switch to an existing branch
+# Switch to existing branch
 git checkout <branchname>
 
-# Merge specified branch into current branch
+# Switch to previous branch
+git checkout -
+
+# Create branch from specific commit
+git checkout -b <branchname> <commit_id>
+```
+
+### Merging
+```bash
+# Merge branch into current branch
 git merge <branchname>
+
+# Merge with no fast-forward
+git merge --no-ff <branchname>
+
+# Abort a merge
+git merge --abort
 
 # Delete a remote branch
 git push origin --delete <branchname>
 ```
-
-### Branch Workflow Tips
-- Use descriptive branch names (e.g., `feature/user-authentication`)
-- Always test your code before merging
-- Consider using pull requests for code review
 
 </details>
 
@@ -195,30 +251,41 @@ git push origin --delete <branchname>
 <details>
 <summary>Click to expand Collaboration commands</summary>
 
-### Sharing Your Work
-Synchronize changes with remote repositories and team members.
-
+### Push Changes
 ```bash
-# Upload committed changes to remote repository
+# Upload changes to remote repository
 git push
 
-# Push a specific branch to remote repository
+# Push a branch to remote
 git push origin <branchname>
 
-# Fetch and merge changes from remote repository
-git pull
+# Push and set upstream
+git push -u origin <branchname>
 
-# Pull changes from a specific branch
-git pull origin <branchname>
+# Force push (use with caution)
+git push --force
 
-# Download new data from remote without merging
-git fetch
+# Push tags
+git push --tags
 ```
 
-### Collaboration Best Practices
-- Always pull before pushing to avoid conflicts
-- Use `git fetch` to see remote changes before merging
-- Communicate with your team about branch strategies
+### Pull Changes
+```bash
+# Fetch and merge changes from remote repo
+git pull
+
+# Pull from specific branch
+git pull origin <branchname>
+
+# Pull with rebase
+git pull --rebase
+
+# Fetch new data without merging
+git fetch
+
+# Fetch from all remotes
+git fetch --all
+```
 
 </details>
 
@@ -229,30 +296,53 @@ git fetch
 <details>
 <summary>Click to expand Inspection & Comparison commands</summary>
 
-### Viewing History and Changes
-Examine your project's evolution and compare different states.
-
+### Log and History
 ```bash
-# Show detailed commit history
+# Show commit history
 git log
 
-# Show brief, one-line commit history
+# Brief log format
 git log --oneline
 
-# Show detailed information about a specific commit
-git show <commit_id>
+# Show graph of commits
+git log --graph --oneline --all
 
-# Show changes that haven't been staged yet
-git diff
+# Show commits by author
+git log --author="Author Name"
 
-# Compare changes between two branches
-git diff <source_branch> <target_branch>
+# Show commits in date range
+git log --since="2 weeks ago" --until="1 week ago"
 ```
 
-### Useful Log Options
-- `git log --graph`: Show branch and merge history visually
-- `git log --author="Name"`: Filter commits by author
-- `git log -n 10`: Show only the last 10 commits
+### Show Changes
+```bash
+# Show what changed in a commit
+git show <commit_id>
+
+# Show changes not yet staged
+git diff
+
+# Show staged changes
+git diff --staged
+
+# Show changes between branches
+git diff <source_branch> <target_branch>
+
+# Show changes between commits
+git diff <commit1> <commit2>
+```
+
+### File History
+```bash
+# Show file change history
+git log -p <filename>
+
+# Show who changed what in a file
+git blame <filename>
+
+# Show file at specific commit
+git show <commit_id>:<filename>
+```
 
 </details>
 
@@ -263,30 +353,47 @@ git diff <source_branch> <target_branch>
 <details>
 <summary>Click to expand Stashing & Cleaning commands</summary>
 
-### Temporary Storage and Cleanup
-Save work in progress and clean your working directory.
-
+### Stashing
 ```bash
-# Save current changes and clean working directory
+# Save dirty work and clean working directory
 git stash
 
-# List all saved stashes
+# Stash with message
+git stash save "Work in progress"
+
+# List all stashes
 git stash list
 
-# Apply the most recent stash
+# Apply most recent stash
+git stash apply
+
+# Apply specific stash
+git stash apply stash@{2}
+
+# Pop (apply and remove) stash
 git stash pop
 
 # Remove all stashed entries
 git stash clear
 
-# Remove untracked files from working directory
-git clean -f
+# Drop specific stash
+git stash drop stash@{1}
 ```
 
-### When to Use Stashing
-- Switching branches with uncommitted changes
-- Pulling updates while you have work in progress
-- Temporarily setting aside incomplete work
+### Cleaning
+```bash
+# Remove untracked files from working directory
+git clean -f
+
+# Remove untracked files and directories
+git clean -fd
+
+# Preview what will be cleaned
+git clean -n
+
+# Remove ignored files
+git clean -fX
+```
 
 </details>
 
@@ -297,30 +404,44 @@ git clean -f
 <details>
 <summary>Click to expand Tags & Releases commands</summary>
 
-### Marking Important Points
-Create tags to mark releases and important milestones.
-
+### Creating Tags
 ```bash
-# Create a lightweight tag on current commit
+# Tag specific commits for release
 git tag <tagname>
 
-# Create an annotated tag with message
-git tag -a <tagname> -m "Release version 1.0"
+# Create annotated tag
+git tag -a <tagname> -m "Release message"
 
-# List all tags
-git tag -l
+# Tag specific commit
+git tag -a <tagname> <commit_id> -m "Message"
 
-# Push tags to remote repository
-git push origin <tagname>
-
-# Push all tags to remote
-git push origin --tags
+# Create lightweight tag
+git tag <tagname>
 ```
 
-### Tagging Best Practices
-- Use semantic versioning (e.g., v1.2.3)
-- Always use annotated tags for releases
-- Include meaningful tag messages
+### Managing Tags
+```bash
+# List all tags
+git tag
+
+# List tags with pattern
+git tag -l "v1.*"
+
+# Show tag information
+git show <tagname>
+
+# Delete local tag
+git tag -d <tagname>
+
+# Delete remote tag
+git push origin --delete <tagname>
+
+# Push specific tag
+git push origin <tagname>
+
+# Push all tags
+git push --tags
+```
 
 </details>
 
@@ -331,27 +452,60 @@ git push origin --tags
 <details>
 <summary>Click to expand Advanced Manipulation commands</summary>
 
-### Power User Commands
-Advanced Git operations for complex scenarios.
-
+### Cherry Pick
 ```bash
-# Apply changes from a specific commit to current branch
+# Apply changes from a specific commit
 git cherry-pick <commit>
 
+# Cherry pick multiple commits
+git cherry-pick <commit1> <commit2>
+
+# Cherry pick a range of commits
+git cherry-pick <start_commit>..<end_commit>
+```
+
+### Rebase
+```bash
 # Apply commits from one branch onto another
 git rebase <branch>
 
-# Find the commit that introduced a bug using binary search
-git bisect start
-git bisect bad <commit>
-git bisect good <commit>
+# Interactive rebase
+git rebase -i HEAD~3
 
-# Show history of HEAD and branch references
-git reflog
+# Continue rebase after resolving conflicts
+git rebase --continue
+
+# Abort rebase
+git rebase --abort
 ```
 
-### ⚠️ Advanced Usage Warning
-These commands can rewrite history. Use with caution, especially in shared repositories.
+### Debugging
+```bash
+# Find commit that introduced a bug (binary search)
+git bisect start
+git bisect bad          # Current commit is bad
+git bisect good <commit> # Known good commit
+git bisect reset        # End bisect session
+
+# Show the history of HEAD and branch references
+git reflog
+
+# Find when a file was deleted
+git log --diff-filter=D --summary
+```
+
+### Advanced Operations
+```bash
+# Squash last 3 commits
+git reset --soft HEAD~3
+git commit -m "Squashed commits"
+
+# Change author of last commit
+git commit --amend --author="New Author <email@example.com>"
+
+# Find commits that changed a specific line
+git log -S "search_string" -p <filename>
+```
 
 </details>
 
@@ -359,62 +513,58 @@ These commands can rewrite history. Use with caution, especially in shared repos
 
 ## Useful References
 
+### Documentation & Resources
+- 📖 [Git Official Documentation](https://git-scm.com/doc)
+- 📋 [Interactive Git Cheatsheet](https://ndpsoftware.com/git-cheatsheet.html)
+- 🎓 [Pro Git Book (Free)](https://git-scm.com/book)
+- 🛠️ [Git Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
+
+### Quick Tips
+- Use `git help <command>` for detailed help on any command
+- Use `git --version` to check your Git version
+- Create aliases for frequently used commands: `git config --global alias.st status`
+- Use `.gitignore` file to exclude files from version control
+
+### Common Workflows
+1. **Feature Branch Workflow**: Create feature branches, merge back to main
+2. **Git Flow**: Use develop, feature, release, and hotfix branches
+3. **GitHub Flow**: Simple workflow with feature branches and pull requests
+4. **Forking Workflow**: Fork repository, make changes, create pull requests
+
+---
+
+## Emergency Commands 🚨
+
 <details>
-<summary>Click to expand Additional Resources</summary>
+<summary>Click to expand Emergency Git Commands</summary>
 
-### Documentation and Learning Resources
+```bash
+# Undo last commit but keep changes
+git reset --soft HEAD~1
 
-#### Official Documentation
-- [Git Official Documentation](https://git-scm.com/doc) - Comprehensive official guide
-- [Pro Git Book](https://git-scm.com/book) - Free online book covering Git in depth
+# Completely undo last commit
+git reset --hard HEAD~1
 
-#### Quick References
-- [Git Cheat Sheet (PDF)](https://education.github.com/git-cheat-sheet-education.pdf) - GitHub's official cheat sheet
-- [Interactive Git Cheatsheet](https://ndpsoftware.com/git-cheatsheet.html) - Visual interactive reference
+# Recover deleted branch
+git checkout -b <branch_name> <commit_id>
 
-#### Learning Platforms
-- [Learn Git Branching](https://learngitbranching.js.org/) - Interactive Git tutorial
-- [GitHub Learning Lab](https://lab.github.com/) - Hands-on Git and GitHub courses
-- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials) - Comprehensive tutorials with examples
+# Find lost commits
+git reflog
+git checkout <commit_id>
 
-#### Video Resources
-- [Git & GitHub Crash Course](https://www.youtube.com/watch?v=SWYqp7iY_Tc) - Traversy Media
-- [Git Tutorial for Beginners](https://www.youtube.com/watch?v=8JJ101D3knE) - Programming with Mosh
+# Force pull (overwrite local changes)
+git fetch --all
+git reset --hard origin/main
+
+# Clean everything (DANGEROUS)
+git clean -fd
+git reset --hard HEAD
+```
 
 </details>
 
 ---
 
-## 📄 Additional Resources
+**Made with ❤️ for DevOps Engineers**
 
-### PDF Downloads
-This repository includes two helpful PDF references:
-- **Git-Cheat-Sheet.pdf** - Quick reference for all Git commands
-- **GitHub-Git-Cheat-Sheet.pdf** - GitHub-specific workflow guide
-
-*Note: PDF files should be uploaded to your repository for users to download*
-
----
-
-## 🤝 Contributing
-
-Found an error or want to add a command? Feel free to:
-1. Fork this repository
-2. Make your improvements
-3. Submit a pull request
-
----
-
-## 📝 License
-
-This cheat sheet is provided under MIT License. Feel free to use, modify, and share!
-
----
-
-## ⭐ Show Your Support
-
-If this cheat sheet helped you, please consider giving it a star! ⭐
-
----
-
-*Happy Coding! 🚀*
+> Remember: With great Git power comes great responsibility. Always backup important work!
