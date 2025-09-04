@@ -25,3 +25,46 @@
 - **DevOps Bootcamp Playlist:** ["DevOps Bootcamp" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerRqYJgVYO0UiExj5byjrW8u)  
 - **Linux For DevOps Engineer Playlist:** ["Linux For DevOps Engineer" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerQr-Se9JRE_tZJk3OUoHCkh)  
 - **DevOps with AWS Playlist:** ["DevOps Engineer AWS" Playlist](https://www.youtube.com/playlist?list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7)  
+
+
+### Phase 4: DevOps Tools (3-4 months)
+
+#### 1. Containerization (Docker)
+```bash
+# Docker Fundamentals
+├── Container Basics
+├── Dockerfile Creation, Multi-Stage Builds
+├── Image Management
+├── Docker Compose
+├── Container Networking
+├── Docker Best Practices
+└── Volume Management
+```
+Checkout the free YouTube playlist 👉 [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUUOkOv3i62UidrLmSB8DcGC)
+
+#### 2. Container Orchestration (Kubernetes)
+Checkout the free YouTube playlist 👉 [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUUOkOv3i62UidrLmSB8DcGC)
+
+#### 3. CI/CD Pipeline
+- Jenkins ( Checkout the free Youtube video [here](https://youtu.be/To-KzPB_EnE))
+- Modern CI/CD Tools(at least one from below)
+  - GitHub Actions
+  - Azure DevOps (Checkout the free Youtube Playlist [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUXseJO1a03CtfRDzr2hivbD))
+  - GitLab CI/CD (Checkout the free Youtube video [here](https://youtu.be/uYaMRn2meJQ))
+
+#### 4. Infrastructure as Code
+```bash
+# Terraform
+├── HCL Syntax
+├── Resource Management
+├── State Management
+├── Modules
+└── Cloud Provider Integration
+```
+Checkout the free Terraform playlist [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUUHlbhuq9V02n9AMLPySoEQ)
+
+#### 5. Monitoring & Logging
+- Prometheus & Grafana
+- ELK Stack
+- Fluentd
+
