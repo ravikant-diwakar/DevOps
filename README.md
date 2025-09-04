@@ -18,3 +18,10 @@
 - [x] [Linux command handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/)
 - [x] [Linux command handbook (PDF)](https://github.com/ravikant-diwakar/DevOps/blob/master/linux-commands-handbook.pdf)
 - [x] [Linux commands for Cloud and Devops engineers](https://www.youtube.com/watch?v=lCq4mYQL0WY) <sup>VIDEO</sup>
+
+Top DevOps Playlists <sup>Hindi Explanation</sup>
+
+### TrainWithShubham 
+- **DevOps Bootcamp Playlist:** ["DevOps Bootcamp" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerRqYJgVYO0UiExj5byjrW8u)  
+- **Linux For DevOps Engineer Playlist:** ["Linux For DevOps Engineer" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerQr-Se9JRE_tZJk3OUoHCkh)  
+- **DevOps with AWS Playlist:** ["DevOps Engineer AWS" Playlist](https://www.youtube.com/playlist?list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7)  
