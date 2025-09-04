@@ -27,7 +27,7 @@
 - **DevOps with AWS Playlist:** ["DevOps Engineer AWS" Playlist](https://www.youtube.com/playlist?list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7)  
 
 
-### Phase 4: DevOps Tools (3-4 months)
+### DevOps Tools 
 
 #### 1. Containerization (Docker)
 ```bash
@@ -63,8 +63,4 @@ Checkout the free YouTube playlist 👉 [here](https://www.youtube.com/playlist?
 ```
 Checkout the free Terraform playlist [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUUHlbhuq9V02n9AMLPySoEQ)
 
-#### 5. Monitoring & Logging
-- Prometheus & Grafana
-- ELK Stack
-- Fluentd
 
