@@ -31,8 +31,6 @@
   - *Key services for DevOps:* EC2 (servers), S3 (storage), RDS (databases), IAM (users/roles).
 - Each service is accessed from a central dashboard, making it easy to launch, monitor, and manage your resources.
 
-***
-
 ---
 
 **Step 3: Create Key Pair (For EC2 Connection)**
