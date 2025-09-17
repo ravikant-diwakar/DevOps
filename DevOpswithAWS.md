@@ -120,9 +120,9 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 - **Type:** Infrastructure as a Service (IaaS)
 - **What it is:** Traditional virtual machine (VM) on AWS cloud.
 - **Features:**
-  - You rent a server (VM) and have full control over OS, networking, security, and deployment.
+  - rent a server (VM) and have full control over OS, networking, security, and deployment.
   - Manual setup for networking, security groups, inbound/outbound rules.
-  - You manage everything (server updates, scaling, security patches, etc.).
+  - manage everything (server updates, scaling, security patches, etc.).
 - **Pros:** 
   - Full flexibility.
   - Suitable for custom server environments and legacy apps.
