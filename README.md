@@ -25,8 +25,7 @@
 - **DevOps Bootcamp Playlist:** ["DevOps Bootcamp" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerRqYJgVYO0UiExj5byjrW8u)  
 - **Linux For DevOps Engineer Playlist:** ["Linux For DevOps Engineer" Playlist](https://youtube.com/playlist?list=PLlfy9GnSVerQr-Se9JRE_tZJk3OUoHCkh)  
 - **DevOps with AWS Playlist:** ["DevOps Engineer AWS" Playlist](https://www.youtube.com/playlist?list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7)
-- [x] [DevOps with AWS](https://github.com/ravikant-diwakar/DevOps/blob/master/DevOpswithAWS.md)
-
+- [x] [DevOps with AWS](https://github.com/ravikant-diwakar/DevOps/blob/master/DevOpswithAWS.md) <sup>NOTES</sup>
 
 ### DevOps Tools 
 
