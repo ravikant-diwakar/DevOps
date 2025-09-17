@@ -114,3 +114,95 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 | 7. Practice | Deploy apps, run Linux commands, terminate unused instances |
 
 ---
+
+
+# 1. AWS EC2 (Elastic Compute Cloud) 
+- **Type:** Infrastructure as a Service (IaaS)
+- **What it is:** Traditional virtual machine (VM) on AWS cloud.
+- **Features:**
+  - You rent a server (VM) and have full control over OS, networking, security, and deployment.
+  - Manual setup for networking, security groups, inbound/outbound rules.
+  - You manage everything (server updates, scaling, security patches, etc.).
+- **Pros:** 
+  - Full flexibility.
+  - Suitable for custom server environments and legacy apps.
+- **Cons:**
+  - High operational cost (maintenance, monitoring, scaling).
+  - Higher management overhead.
+  - Less abstraction compared to newer AWS offerings.
+
+***
+
+**2. AWS ECS (Elastic Container Service)**  
+- **Type:** Container Orchestration Service (CaaS)
+- **What it is:** AWS-managed container orchestration (uses Docker).
+- **Features:**
+  - Simplifies running containers (no need to manage server infrastructure directly).
+  - Ideal for microservices and containerized applications.
+  - Still need to provision EC2 instances for running containers (unless using Fargate).
+  - Handles scaling, updates, and orchestration of containers.
+- **Pros:**
+  - Reduces infrastructure worries.
+  - Automates container management.
+- **Cons:**
+  - Still need to manage and scale underlying EC2 instances (if not using Fargate).
+  - Some operational tasks remain for servers.
+
+***
+
+**3. AWS Fargate**  
+- **Type:** Serverless for Containers / Container as a Service (CaaS)
+- **What it is:** Run containers directly without managing servers or EC2 instances.
+- **Features:**
+  - AWS manages all infrastructure, scaling, patching.
+  - You specify container images, CPU, memory requirements.
+  - Pay only for resources used (no server payments).
+  - Removes need to think about underlying VMs.
+- **Pros:**
+  - No need to manage servers (truly serverless for containers).
+  - Great abstraction, ideal for containerized workloads.
+  - Easy to scale and maintain.
+- **Cons:**
+  - Potentially higher cost if continuously running large workloads.
+  - Limited to containerized applications.
+  - You still need to configure containers (resource allocation).
+
+***
+
+**4. AWS Lambda**  
+- **Type:** Function as a Service (FaaS) / Serverless
+- **What it is:** Run code in response to events without managing servers or containers.
+- **Features:**
+  - Code runs only when triggered by events (HTTP, S3, etc.).
+  - Maximum execution time per invocation: 15 minutes.
+  - Pay as you use: only for function execution time.
+  - No server or infrastructure management.
+- **Pros:**
+  - Event-driven, cost-effective for sporadic workloads.
+  - Ultra-low management (just write code and deploy).
+  - Ideal for automation, cron jobs, API endpoints.
+- **Cons:**
+  - Not suitable for long-running processes.
+  - Resource and execution time limits.
+  - Not for heavy/constant workloads.
+
+***
+
+**SUMMARY COMPARISON**
+
+| Feature           | EC2             | ECS                  | Fargate                | Lambda                  |
+|------------------|-----------------|----------------------|------------------------|-------------------------|
+| Server Management| Full (manual)   | Partial (less manual)| None (fully managed)   | None (fully managed)    |
+| Scaling          | Manual/Auto     | Managed for containers | Automatic             | Automatic               |
+| Abstraction      | Low             | Medium               | High                   | Very High (just code)   |
+| Costing Model    | Per server-hour | Based on EC2+usage   | Pay-per container usage| Pay per invocation      |
+| Suitability      | Custom workloads| Microservices, apps  | Containers of any scale| Event/trigger based     |
+| Maintenance      | You do all      | You do some          | None                   | None                    |
+
+- **Move from EC2 to Lambda** = Less management, more abstraction, automatic scaling, and “pay as you use” model.
+- Choosing the right tool depends on your use-case:  
+  - Full control/customization → EC2  
+  - Containerized/microservices → ECS/Fargate  
+  - Fully event-based, no infra → Lambda
+
+***
