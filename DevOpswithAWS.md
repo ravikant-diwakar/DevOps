@@ -35,7 +35,7 @@
 
 ---
 
-## 🔑 Step 3: Create Key Pair (For EC2 Connection)
+**Step 3: Create Key Pair (For EC2 Connection)**
 
 1. Navigate to **EC2 → Key Pairs → Create Key Pair**.
 
@@ -72,7 +72,7 @@
 
 ---
 
-## 🚀 Step 4: Launch Your First EC2 Instance
+**Step 4: Launch Your First EC2 Instance**
 
 1. Go to **EC2 service** in the console.
 2. Click **Launch Instance**.
@@ -91,7 +91,7 @@
 
 ---
 
-## 🔗 Step 5: Connect to EC2 Instance
+**Step 5: Connect to EC2 Instance**
 
 1. Find **Public IP** of your instance in AWS Console.
 2. Connect via SSH:
@@ -104,7 +104,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 ---
 
-## 📌 Best Practices
+**Best Practices**
 
 * Keep your **AWS credentials & SSH key** secure.
 * Stick to **Free Tier** (`t2.micro`, limited storage, etc.).
@@ -117,7 +117,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 ---
 
-## 📊 Summary Table
+**Summary Table**
 
 | Step        | Description                                                 |
 | ----------- | ----------------------------------------------------------- |
@@ -130,7 +130,3 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 | 7. Practice | Deploy apps, run Linux commands, terminate unused instances |
 
 ---
-
-⚡ Now you have **complete notes with Key Pair details included**.
-
-Do you want me to also add a **mini hands-on exercise** (like setting up Apache on EC2 and hosting a "Hello World" webpage) to these notes? That would give you practical practice right after connecting.
