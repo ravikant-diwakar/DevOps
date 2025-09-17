@@ -29,7 +29,7 @@
 - **Login to AWS Console** using your new credentials.
 - AWS Console Dashboard shows all available AWS services.
   - *Key services for DevOps:* EC2 (servers), S3 (storage), RDS (databases), IAM (users/roles).
-- Each service is accessed from a central dashboard, making it easy to launch, monitor, and manage your resources.[1][2]
+- Each service is accessed from a central dashboard, making it easy to launch, monitor, and manage your resources.
 
 ***
 
@@ -43,7 +43,7 @@
 - **Configure Security Group:** Set rules for SSH (port 22) and other ports (if web server, open port 80/443).
 - **Review and Launch:**
   - Download the SSH key pair provided—required for connecting to your instance.
-  - Confirm all settings and launch the instance.[3][4][5]
+  - Confirm all settings and launch the instance.
 
 ***
 
