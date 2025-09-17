@@ -11,8 +11,6 @@
   - Seamless infrastructure automation, scalable deployments, fast provisioning.
   - Enables engineers to deploy, test, and manage applications globally and reliably.
 
-***
-
 **Step 1: AWS Account Setup**
 
 - Go to the AWS website and initiate account creation.
@@ -22,16 +20,12 @@
 - Select a support plan (Free Basic Support is recommended for students/learners).
 - Complete account verification.
 
-***
-
 **Step 2: Exploring the AWS Console**
 
 - **Login to AWS Console** using your new credentials.
 - AWS Console Dashboard shows all available AWS services.
   - *Key services for DevOps:* EC2 (servers), S3 (storage), RDS (databases), IAM (users/roles).
 - Each service is accessed from a central dashboard, making it easy to launch, monitor, and manage your resources.
-
----
 
 **Step 3: Create Key Pair (For EC2 Connection)**
 
@@ -68,8 +62,6 @@
    ssh -i ~/path/to/my-ec2-key.pem ubuntu@<your-public-ip>
    ```
 
----
-
 **Step 4: Launch Your First EC2 Instance**
 
 1. Go to **EC2 service** in the console.
@@ -87,8 +79,6 @@
 4. **Key Pair** → Select the one you just created.
 5. Click **Launch Instance**.
 
----
-
 **Step 5: Connect to EC2 Instance**
 
 1. Find **Public IP** of your instance in AWS Console.
@@ -100,8 +90,6 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 3. You now have a **Linux server running in AWS**!
 
----
-
 **Best Practices**
 
 * Keep your **AWS credentials & SSH key** secure.
@@ -112,8 +100,6 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
   * Deploying a sample web app
   * Running Linux commands
   * Setting up Apache/Nginx server
-
----
 
 **Summary Table**
 
