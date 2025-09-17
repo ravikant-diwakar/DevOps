@@ -1,4 +1,4 @@
-# AWS account setup with EC2 Tutorial
+# 1. AWS account setup with EC2 Tutorial
 
 **AWS & Cloud Computing Basics**
 
@@ -116,7 +116,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 ---
 
 
-# 1. AWS EC2 (Elastic Compute Cloud) 
+# 2. AWS EC2 (Elastic Compute Cloud) 
 - **Type:** Infrastructure as a Service (IaaS)
 - **What it is:** Traditional virtual machine (VM) on AWS cloud.
 - **Features:**
