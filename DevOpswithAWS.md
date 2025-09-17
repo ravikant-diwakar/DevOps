@@ -79,13 +79,3 @@
 | 5. Connect  | SSH into instance using provided key                         |
 | 6. Practice | Deploy/test applications, terminate when done                |
 
-***
-
-This covers all **basics and step-by-step details for AWS account setup and EC2 usage for DevOps beginners** as explained in the tutorial, with practical insights for real-world application.[2][4][5][1][3]
-
-[1](https://www.youtube.com/watch?v=gz3dr6o5gxI&amp;list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&amp;index=1)
-[2](https://www.youtube.com/watch?v=gz3dr6o5gxI&amp;list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&amp;index=1&amp;t=90s)
-[3](https://www.youtube.com/watch?v=gz3dr6o5gxI&amp;list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&amp;index=1&amp;t=360s)
-[4](https://www.youtube.com/watch?v=gz3dr6o5gxI&amp;list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&amp;index=1&amp;t=450s)
-[5](https://www.youtube.com/watch?v=gz3dr6o5gxI&amp;list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&amp;index=1&amp;t=780s)
-[6](https://www.youtube.com/watch?v=gz3dr6o5gxI&list=PLlfy9GnSVerQwJTUul8p_BWT5SdXAslI7&index=2)
