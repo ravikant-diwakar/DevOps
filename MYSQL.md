@@ -239,6 +239,4 @@ INSERT INTO employee_backup SELECT * FROM employee_info;
 ***
 
 
-**These notes together cover all major SQL topics (with MySQL) featured in the video, with practical Hindi explanations and ready-to-use code. Each topic builds your skill with theory and live SQL commands for hands-on practice.**
-
-[1](https://www.youtube.com/watch?v=7wj7UEdLI6U)
+[VIDEO](https://www.youtube.com/watch?v=7wj7UEdLI6U)
