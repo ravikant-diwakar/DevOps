@@ -206,3 +206,171 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
   - Fully event-based, no infra → Lambda
 
 ***
+
+# 3. *step-by-step guide* to set up a basic *AWS VPC* environment, *launch an EC2 instance, and **connect to it*.
+
+1. ✅ VPC Setup (VPC, Subnet, IGW, Route Table)
+2. ✅ EC2 Launch (with public IP & security group)
+3. ✅ Connect to EC2 via SSH
+
+---
+
+# 🧾 Step-by-Step Guide to Launch EC2 in a Custom VPC
+
+---
+
+## 🟢 *PART 1: VPC NETWORK SETUP*
+
+---
+
+### *Step 1: Create a VPC*
+
+1. Go to *VPC Dashboard* → *Your VPCs* → Click *Create VPC*
+2. Select *VPC only*
+3. *Name*: MyVPC
+4. *IPv4 CIDR block*: 10.0.0.0/16
+5. Leave everything else default → Click *Create VPC*
+
+---
+
+### *Step 2: Create a Subnet*
+
+1. Go to *Subnets* → Click *Create Subnet*
+2. *Name*: MyPublicSubnet
+3. *VPC*: Select MyVPC
+4. *Availability Zone*: e.g., us-east-1a
+5. *IPv4 CIDR block*: 10.0.1.0/24
+6. Click *Create Subnet*
+
+---
+
+### *Step 3: Create and Attach Internet Gateway (IGW)*
+
+1. Go to *Internet Gateways* → Click *Create internet gateway*
+2. *Name*: MyIGW → Click *Create*
+3. Click on the IGW → *Actions* → *Attach to VPC*
+
+* Choose MyVPC → Attach
+
+---
+
+### *Step 4: Create a Route Table*
+
+1. Go to *Route Tables* → Click *Create route table*
+2. *Name*: MyPublicRouteTable
+3. *VPC*: Select MyVPC
+4. Click *Create*
+
+---
+
+### *Step 5: Add Route to Internet Gateway*
+
+1. Click your new route table → *Routes* tab → *Edit routes*
+2. *Add Route*:
+
+* *Destination*: 0.0.0.0/0
+* *Target*: Select your IGW (MyIGW)
+3. Click *Save changes*
+
+---
+
+### *Step 6: Associate Route Table with Subnet*
+
+1. Go to your Route Table → *Subnet Associations* tab → Click *Edit subnet associations*
+2. Select MyPublicSubnet → Click *Save associations*
+
+---
+
+### *Step 7: Modify Subnet to Auto-Assign Public IP*
+
+1. Go to *Subnets* → Select MyPublicSubnet
+2. Click *Actions* → *Modify auto-assign IP settings*
+3. Enable: ✅ *Auto-assign public IPv4 address*
+4. Click *Save*
+
+---
+
+## 🟢 *PART 2: LAUNCH EC2 INSTANCE*
+
+---
+
+### *Step 8: Create a Key Pair (for SSH access)*
+
+1. Go to *EC2 Dashboard* → *Key Pairs* → Click *Create key pair*
+2. *Name*: MyKeyPair
+3. *File format*: .pem (for Linux/Mac) or .ppk (for PuTTY/Windows)
+4. Click *Create key pair*
+5. ✅ Save the .pem file safely — you’ll need it to connect
+
+---
+
+### *Step 9: Create Security Group*
+
+1. Go to *EC2 Dashboard* → *Security Groups* → Click *Create security group*
+2. *Name*: MySG
+3. *VPC*: Select MyVPC
+4. In *Inbound rules*:
+
+* Click *Add Rule*:
+
+* *Type*: SSH
+* *Port*: 22
+* *Source*: My IP (or 0.0.0.0/0 for open access — less secure)
+5. Click *Create security group*
+
+---
+
+### *Step 10: Launch EC2 Instance*
+
+1. Go to *EC2 Dashboard* → Click *Launch instance*
+2. *Name*: MyEC2Instance
+3. *AMI*: Amazon Linux 2023 (or Ubuntu 22.04, etc.)
+4. *Instance type*: t2.micro (Free tier eligible)
+5. *Key pair*: Select MyKeyPair
+6. *Network settings*:
+
+* *VPC*: MyVPC
+* *Subnet*: MyPublicSubnet
+* *Auto-assign public IP*: ✅ Enabled
+* *Firewall*: Select existing Security Group → Choose MySG
+7. Leave storage default → Click *Launch Instance*
+
+✅ Your EC2 instance will now start. Wait until the status is *"Running"* and the *Status Checks = 2/2*.
+
+---
+
+## 🟢 *PART 3: CONNECT TO EC2 INSTANCE*
+
+---
+
+### *Step 11: Connect via SSH (Linux/macOS)*
+
+1. Open Terminal
+2. Navigate to the folder with your .pem file
+3. Run the following commands:
+
+bash
+chmod 400 MyKeyPair.pem
+
+ssh -i "MyKeyPair.pem" ec2-user@<Public-IP>
+
+
+📌 Replace <Public-IP> with your instance's actual public IP
+📌 Use ubuntu@ instead of ec2-user@ if you used Ubuntu AMI
+
+---
+
+### ✅ You’re in!
+
+You've successfully launched an EC2 instance in your custom VPC and connected to it.
+
+---
+
+## 🎯 What You Can Do Next:
+
+* 🖥 Install Apache or NGINX: sudo yum install -y httpd
+* 🌐 Host a simple website
+* 🔒 Set up a private subnet + NAT Gateway
+* 📦 Automate all this using *Terraform*
+
+---
