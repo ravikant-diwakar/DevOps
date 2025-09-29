@@ -334,4 +334,91 @@ ssh -i "MyKeyPair.pem" ec2-user@<public-ip>
 
 You've successfully launched an EC2 instance in your custom VPC and connected to it.
 
+## Step-by-Step: Test EC2 Connection Using PuTTY
+
+### PRE-STEP: Convert `.pem` to `.ppk` (if you haven't already)
+
+PuTTY doesn’t accept `.pem` files directly. You must convert your key to `.ppk` format using **PuTTYgen**.
+
+1. Open **PuTTYgen** (search in Start menu).
+2. Click **Load**, change file type to *All Files*, then select your `MyKeyPair.pem`.
+3. Click **Save private key** → Save as `MyKeyPair.ppk`.
+
+### 1. Open **PuTTY**
+
+Start PuTTY from the Start Menu.
+
+### 2. In the **Host Name (or IP address)** field:
+
+Enter your EC2 instance’s **public IPv4 address**.
+
+Example:
+
+```text
+ec2-user@54.123.45.67
+```
+
+Or just:
+
+```text
+54.123.45.67
+```
+
+(Find your IP in EC2 Dashboard → Instances → Your Instance → “Public IPv4 address”)
+
+### 3. In the **Category** tree on the left:
+
+Navigate to:
+
+```
+Connection → SSH → Auth → Credentials
+```
+
+* Click **Browse**
+* Select your `.ppk` file (`MyKeyPair.ppk`)
+
 ---
+
+### 4. (Optional) Save session:
+
+Back in **Session** (top of tree), type a **name** under “Saved Sessions” and click **Save** — so you don’t have to re-enter every time.
+
+---
+
+### 5. Click **Open**
+
+If everything is configured correctly, you’ll see:
+
+**Login prompt**
+
+Example:
+
+```bash
+login as:
+```
+
+### 6. Enter the username:
+
+Use:
+
+* `ec2-user` for Amazon Linux
+* `ubuntu` for Ubuntu
+* `admin` for some other AMIs
+
+So type:
+
+```bash
+ec2-user
+```
+
+and press **Enter**
+
+## Success Looks Like This:
+
+If connection is successful, you'll see:
+
+```
+[ec2-user@ip-10-0-1-xx ~]$
+```
+
+You’re now inside your EC2 instance terminal! 
