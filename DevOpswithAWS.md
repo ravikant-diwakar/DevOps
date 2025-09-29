@@ -207,21 +207,9 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 ***
 
-# 3. *step-by-step guide* to set up a basic *AWS VPC* environment, *launch an EC2 instance, and **connect to it*.
+# 3. Step-by-Step Guide to Launch EC2 in a Custom VPC
 
-1. ✅ VPC Setup (VPC, Subnet, IGW, Route Table)
-2. ✅ EC2 Launch (with public IP & security group)
-3. ✅ Connect to EC2 via SSH
-
----
-
-# 🧾 Step-by-Step Guide to Launch EC2 in a Custom VPC
-
----
-
-## 🟢 *PART 1: VPC NETWORK SETUP*
-
----
+## *PART 1: VPC NETWORK SETUP*
 
 ### *Step 1: Create a VPC*
 
@@ -230,8 +218,6 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 3. *Name*: MyVPC
 4. *IPv4 CIDR block*: 10.0.0.0/16
 5. Leave everything else default → Click *Create VPC*
-
----
 
 ### *Step 2: Create a Subnet*
 
@@ -242,8 +228,6 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 5. *IPv4 CIDR block*: 10.0.1.0/24
 6. Click *Create Subnet*
 
----
-
 ### *Step 3: Create and Attach Internet Gateway (IGW)*
 
 1. Go to *Internet Gateways* → Click *Create internet gateway*
@@ -252,16 +236,12 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 * Choose MyVPC → Attach
 
----
-
 ### *Step 4: Create a Route Table*
 
 1. Go to *Route Tables* → Click *Create route table*
 2. *Name*: MyPublicRouteTable
 3. *VPC*: Select MyVPC
 4. Click *Create*
-
----
 
 ### *Step 5: Add Route to Internet Gateway*
 
@@ -272,27 +252,19 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 * *Target*: Select your IGW (MyIGW)
 3. Click *Save changes*
 
----
-
 ### *Step 6: Associate Route Table with Subnet*
 
 1. Go to your Route Table → *Subnet Associations* tab → Click *Edit subnet associations*
 2. Select MyPublicSubnet → Click *Save associations*
 
----
-
 ### *Step 7: Modify Subnet to Auto-Assign Public IP*
 
 1. Go to *Subnets* → Select MyPublicSubnet
 2. Click *Actions* → *Modify auto-assign IP settings*
-3. Enable: ✅ *Auto-assign public IPv4 address*
+3. Enable: *Auto-assign public IPv4 address*
 4. Click *Save*
 
----
-
-## 🟢 *PART 2: LAUNCH EC2 INSTANCE*
-
----
+## *PART 2: LAUNCH EC2 INSTANCE*
 
 ### *Step 8: Create a Key Pair (for SSH access)*
 
@@ -300,9 +272,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 2. *Name*: MyKeyPair
 3. *File format*: .pem (for Linux/Mac) or .ppk (for PuTTY/Windows)
 4. Click *Create key pair*
-5. ✅ Save the .pem file safely — you’ll need it to connect
-
----
+5. Save the .pem file safely — you’ll need it to connect
 
 ### *Step 9: Create Security Group*
 
@@ -318,8 +288,6 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 * *Source*: My IP (or 0.0.0.0/0 for open access — less secure)
 5. Click *Create security group*
 
----
-
 ### *Step 10: Launch EC2 Instance*
 
 1. Go to *EC2 Dashboard* → Click *Launch instance*
@@ -331,17 +299,13 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 
 * *VPC*: MyVPC
 * *Subnet*: MyPublicSubnet
-* *Auto-assign public IP*: ✅ Enabled
+* *Auto-assign public IP*: Enabled
 * *Firewall*: Select existing Security Group → Choose MySG
 7. Leave storage default → Click *Launch Instance*
 
-✅ Your EC2 instance will now start. Wait until the status is *"Running"* and the *Status Checks = 2/2*.
+Your EC2 instance will now start. Wait until the status is *"Running"* and the *Status Checks = 2/2*.
 
----
-
-## 🟢 *PART 3: CONNECT TO EC2 INSTANCE*
-
----
+## *PART 3: CONNECT TO EC2 INSTANCE*
 
 ### *Step 11: Connect via SSH (Linux/macOS)*
 
@@ -358,19 +322,15 @@ ssh -i "MyKeyPair.pem" ec2-user@<Public-IP>
 📌 Replace <Public-IP> with your instance's actual public IP
 📌 Use ubuntu@ instead of ec2-user@ if you used Ubuntu AMI
 
----
-
-### ✅ You’re in!
+### You’re in!
 
 You've successfully launched an EC2 instance in your custom VPC and connected to it.
 
----
+## What You Can Do Next:
 
-## 🎯 What You Can Do Next:
-
-* 🖥 Install Apache or NGINX: sudo yum install -y httpd
-* 🌐 Host a simple website
-* 🔒 Set up a private subnet + NAT Gateway
-* 📦 Automate all this using *Terraform*
+* Install Apache or NGINX: sudo yum install -y httpd
+* Host a simple website
+* Set up a private subnet + NAT Gateway
+* Automate all this using *Terraform*
 
 ---
