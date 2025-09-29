@@ -326,11 +326,4 @@ ssh -i "MyKeyPair.pem" ec2-user@<Public-IP>
 
 You've successfully launched an EC2 instance in your custom VPC and connected to it.
 
-## What You Can Do Next:
-
-* Install Apache or NGINX: sudo yum install -y httpd
-* Host a simple website
-* Set up a private subnet + NAT Gateway
-* Automate all this using *Terraform*
-
 ---
