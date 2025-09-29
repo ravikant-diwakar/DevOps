@@ -334,7 +334,7 @@ ssh -i "MyKeyPair.pem" ec2-user@<public-ip>
 
 You've successfully launched an EC2 instance in your custom VPC and connected to it.
 
-## Step-by-Step: Test EC2 Connection Using PuTTY
+## Test EC2 Connection Using PuTTY
 
 ### PRE-STEP: Convert `.pem` to `.ppk` (if you haven't already)
 
