@@ -1,3 +1,11 @@
+# Table of Contents
+
+1. [AWS account setup with EC2 Tutorial](#1-aws-account-setup-with-ec2-tutorial)
+2. [AWS EC2 (Elastic Compute Cloud)](#2-aws-ec2-elastic-compute-cloud)
+3. [Step-by-Step Guide to Launch EC2 in a Custom VPC](#3-step-by-step-guide-to-launch-ec2-in-a-custom-vpc)
+
+---
+
 # 1. AWS account setup with EC2 Tutorial
 
 **AWS & Cloud Computing Basics**
@@ -199,7 +207,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 | Suitability      | Custom workloads| Microservices, apps  | Containers of any scale| Event/trigger based     |
 | Maintenance      | You do all      | You do some          | None                   | None                    |
 
-- **Move from EC2 to Lambda** = Less management, more abstraction, automatic scaling, and “pay as you use” model.
+- **Move from EC2 to Lambda** = Less management, more abstraction, automatic scaling, and "pay as you use" model.
 - Choosing the right tool depends on your use-case:  
   - Full control/customization → EC2  
   - Containerized/microservices → ECS/Fargate  
@@ -272,7 +280,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 2. *Name*: MyKeyPair
 3. *File format*: .pem (for Linux/Mac) or .ppk (for PuTTY/Windows)
 4. Click *Create key pair*
-5. Save the .pem file safely — you’ll need it to connect
+5. Save the .pem file safely — you'll need it to connect
 
 ### *Step 9: Create Security Group*
 
@@ -316,13 +324,13 @@ Your EC2 instance will now start. Wait until the status is *"Running"* and the *
 bash
 chmod 400 MyKeyPair.pem
 
-ssh -i "MyKeyPair.pem" ec2-user@<Public-IP>
+ssh -i "MyKeyPair.pem" ec2-user@<public-ip>
 
 
-📌 Replace <Public-IP> with your instance's actual public IP
+📌 Replace <public-ip> with your instance's actual public IP
 📌 Use ubuntu@ instead of ec2-user@ if you used Ubuntu AMI
 
-### You’re in!
+### You're in!
 
 You've successfully launched an EC2 instance in your custom VPC and connected to it.
 
