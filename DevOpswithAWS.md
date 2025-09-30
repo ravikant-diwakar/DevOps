@@ -415,3 +415,65 @@ If connection is successful, you'll see:
 ```
 
 You’re now inside your EC2 instance terminal! 
+
+---
+
+# 3. VPC Peering Connection (Peering Two Custom VPCs with EC2 and Ping Test)
+
+### 1. Create Two Custom VPCs
+
+- **VPC01:**  
+  - CIDR block: `10.0.0.0/16`
+  - Subnet01: `10.0.0.0/24`
+- **VPC02:**  
+  - CIDR block: `172.16.0.0/16`
+  - Subnet02: `172.16.0.0/24`
+
+### 2. Create Internet Gateways
+
+- Attach IGW01 to VPC01
+- Attach IGW02 to VPC02
+
+### 3. Create Route Tables & Subnet Associations
+
+- In VPC01, create RT01 and associate with Subnet01
+- In VPC02, create RT02 and associate with Subnet02
+- Add default routes (`0.0.0.0/0`) in each route table pointing to respective IGWs for internet access
+
+### 4. Launch EC2 Instances
+
+- Launch 1 EC2 instance in VPC01 > Subnet01
+- Launch 1 EC2 instance in VPC02 > Subnet02
+- Note down both private IPs  
+- Attach proper key pairs for SSH (optional, for shell access)
+
+### 5. Create VPC Peering Connection
+
+- In AWS VPC Dashboard, go to “Peering Connections” > “Create Peering Connection”
+- Select VPC01 as requester, VPC02 as accepter (same/different account/region allowed)
+- After creation, accept the connection from the target VPC if required.[1]
+
+### 6. Update Route Tables with Peering Routes
+
+- In RT01 (VPC01):  
+  - Add route: Destination `172.16.0.0/16` → Target: *VPC Peering Connection*
+- In RT02 (VPC02):  
+  - Add route: Destination `10.0.0.0/16` → Target: *VPC Peering Connection*
+
+### 7. Security Groups: Enable ICMP
+
+- In both EC2 instances’ security groups:
+  - Add inbound rule: Type = ICMP (Echo Request), Source = peer VPC’s CIDR block
+  - (Optional) Allow relevant SSH/HTTP/other protocol as per need
+
+### 8. Ping Test for Connectivity
+
+- SSH into EC2 in VPC01, run:
+  ```
+  ping <Private IP of EC2 in VPC02>
+  ```
+- SSH into EC2 in VPC02, run:
+  ```
+  ping <Private IP of EC2 in VPC01>
+  ```
+- Successful replies = peering working and ICMP open
