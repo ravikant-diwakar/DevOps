@@ -89,8 +89,5 @@ Resources:
     - [Getting Started With Ansible](https://docs.ansible.com/ansible/latest/getting_started/) <sup>FREE</sup>
     - [Learning Ansible Basics](https://www.redhat.com/en/topics/automation/learning-ansible-tutorial)
     - [Get started with Red Hat Ansible](https://www.ansible.com/resources/get-started) <sup>FREE and PAID</sup>
-    - [Mastering Ansible](https://www.udemy.com/course/mastering-ansible/) <sup>Udemy Course</sup
-- Istio:
-    - [What is Istio?](https://www.redhat.com/en/topics/microservices/what-is-istio) <sup>FREE</sup>
 
 
