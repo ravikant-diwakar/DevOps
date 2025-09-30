@@ -233,7 +233,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 2. *Name*: MyPublicSubnet
 3. *VPC*: Select MyVPC
 4. *Availability Zone*: e.g., us-east-1a
-5. *IPv4 CIDR block*: 10.0.1.0/24
+5. *IPv4 CIDR block*: 10.0.0.0/24
 6. Click *Create Subnet*
 
 ### *Step 3: Create and Attach Internet Gateway (IGW)*
