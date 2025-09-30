@@ -265,16 +265,9 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 1. Go to your Route Table → *Subnet Associations* tab → Click *Edit subnet associations*
 2. Select MyPublicSubnet → Click *Save associations*
 
-### *Step 7: Modify Subnet to Auto-Assign Public IP*
-
-1. Go to *Subnets* → Select MyPublicSubnet
-2. Click *Actions* → *Modify auto-assign IP settings*
-3. Enable: *Auto-assign public IPv4 address*
-4. Click *Save*
-
 ## *PART 2: LAUNCH EC2 INSTANCE*
 
-### *Step 8: Create a Key Pair (for SSH access)*
+### *Step 7: Create a Key Pair (for SSH access)*
 
 1. Go to *EC2 Dashboard* → *Key Pairs* → Click *Create key pair*
 2. *Name*: MyKeyPair
@@ -282,7 +275,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 4. Click *Create key pair*
 5. Save the .pem file safely — you'll need it to connect
 
-### *Step 9: Create Security Group*
+### *Step 8: Create Security Group*
 
 1. Go to *EC2 Dashboard* → *Security Groups* → Click *Create security group*
 2. *Name*: MySG
@@ -296,7 +289,7 @@ ssh -i ~/path/to/my-ec2-key.pem ubuntu@<public-ip>
 * *Source*: My IP (or 0.0.0.0/0 for open access — less secure)
 5. Click *Create security group*
 
-### *Step 10: Launch EC2 Instance*
+### *Step 9: Launch EC2 Instance*
 
 1. Go to *EC2 Dashboard* → Click *Launch instance*
 2. *Name*: MyEC2Instance
