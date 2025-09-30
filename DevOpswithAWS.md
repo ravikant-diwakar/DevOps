@@ -445,7 +445,6 @@ You’re now inside your EC2 instance terminal!
 - Launch 1 EC2 instance in VPC01 > Subnet01
 - Launch 1 EC2 instance in VPC02 > Subnet02
 - Note down both private IPs  
-- Attach proper key pairs for SSH (optional, for shell access)
 
 ### 5. Create VPC Peering Connection
 
@@ -460,13 +459,7 @@ You’re now inside your EC2 instance terminal!
 - In RT02 (VPC02):  
   - Add route: Destination `10.0.0.0/16` → Target: *VPC Peering Connection*
 
-### 7. Security Groups: Enable ICMP
-
-- In both EC2 instances’ security groups:
-  - Add inbound rule: Type = ICMP (Echo Request), Source = peer VPC’s CIDR block
-  - (Optional) Allow relevant SSH/HTTP/other protocol as per need
-
-### 8. Ping Test for Connectivity
+### 7. Ping Test for Connectivity
 
 - SSH into EC2 in VPC01, run:
   ```
