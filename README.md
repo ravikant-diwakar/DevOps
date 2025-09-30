@@ -63,4 +63,34 @@ Checkout the free YouTube playlist 👉 [here](https://www.youtube.com/playlist?
 ```
 Checkout the free Terraform playlist [here](https://www.youtube.com/playlist?list=PLl4APkPHzsUUHlbhuq9V02n9AMLPySoEQ)
 
+Sometimes referred to as **IaC**, it refers to the techniques and tools used to define infrastructure, typically in a markup language like YAML or JSON. Infrastructure as code allows Engineers to automate environment setup and teardown. Accelerates and de-risks deployment by provisioning gold copy environments on demand.
+
+**Terraform** is the most popular infrastructure provisioning tool, but there are others such as Ansible, Chef, Puppet, and Vagrant.
+
+Here you need to know how to do **infrastructure provisioning** and **configuration management**, but also how to write **Terraform modules**.
+
+Resources:
+
+- [GUIs, CLI, APIs: Learn Basic Terms of Infrastructure-as-Code](https://thenewstack.io/guis-cli-apis-learn-basic-terms-of-infrastructure-as-code/) <sup>FREE</sup>
+- Terraform:
+    - [Official Terraform Tutorials](https://learn.hashicorp.com/terraform) <sup>FREE</sup>
+    - [A Comprehensive Guide to Terraform](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca) <sup>FREE</sup>
+    - [Automate Terraform documentation like a pro!](https://medium.com/google-cloud/automate-terraform-documentation-like-a-pro-ed3e19998808) <sup>FREE</sup>
+    - [Writing reusable Terraform modules](https://thomasthornton.cloud/2022/06/02/writing-reusable-terraform-modules/) <sup>FREE</sup>
+    - [Terraform Course - Automate your AWS cloud infrastructure](https://www.youtube.com/watch?v=SLB_c_ayRMo) <sup>FREE</sup>
+    - [HashiCorp Terraform Associate Certification Course](https://www.youtube.com/watch?v=SPcwo0Gq9T8) <sup>FREE</sup>
+    - [Terraform on Azure](https://learn.microsoft.com/en-us/azure/developer/terraform/overview) <sup>FREE</sup>
+- Puppet:
+    - [Puppet overview](https://puppet.com/docs/puppet/latest/puppet_overview.html) <sup>FREE</sup>
+    - [Puppet Courses](https://training.puppet.com/) <sup>FREE and PAID</sup>
+- Chef:
+    - [Learn Chef](https://learn.chef.io/) <sup>FREE</sup>
+- Ansible:
+    - [Getting Started With Ansible](https://docs.ansible.com/ansible/latest/getting_started/) <sup>FREE</sup>
+    - [Learning Ansible Basics](https://www.redhat.com/en/topics/automation/learning-ansible-tutorial)
+    - [Get started with Red Hat Ansible](https://www.ansible.com/resources/get-started) <sup>FREE and PAID</sup>
+    - [Mastering Ansible](https://www.udemy.com/course/mastering-ansible/) <sup>Udemy Course</sup
+- Istio:
+    - [What is Istio?](https://www.redhat.com/en/topics/microservices/what-is-istio) <sup>FREE</sup>
+
 
