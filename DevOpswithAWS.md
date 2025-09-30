@@ -418,7 +418,7 @@ You’re now inside your EC2 instance terminal!
 
 ---
 
-# 3. VPC Peering Connection (Peering Two Custom VPCs with EC2 and Ping Test)
+# 4. VPC Peering Connection (Peering Two Custom VPCs with EC2 and Ping Test)
 
 ### 1. Create Two Custom VPCs
 
